@@ -75,21 +75,21 @@ describe("Gilded Rose", function() {
   // });
 
    describe("Aged Brie", function() {
-    // describe("when Quality = 50", function() {
-    //   it("should remain at 50", function() {
-    //     const gildedRose = new Shop([ new Item("Aged Brie", 1, 50) ]);
-    //     const items = gildedRose.updateQuality();
-    //     expect(items[0].quality).toEqual(50);
-    //     expect(items[0].sellIn).toEqual(0);
-    //   });
-    //
-    //   it("should remain at 50", function() {
-    //     const gildedRose = new Shop([ new Item("Aged Brie", 0, 50) ]);
-    //     const items = gildedRose.updateQuality();
-    //     expect(items[0].quality).toEqual(50);
-    //     expect(items[0].sellIn).toEqual(-1);
-    //   });
-    // });
+    describe("when Quality = 50", function() {
+      it("should remain at 50", function() {
+        const gildedRose = new Shop([ new Item("Aged Brie", 1, 50) ]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].quality).toEqual(50);
+        expect(items[0].sellIn).toEqual(0);
+      });
+
+      it("should remain at 50", function() {
+        const gildedRose = new Shop([ new Item("Aged Brie", 0, 50) ]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].quality).toEqual(50);
+        expect(items[0].sellIn).toEqual(-1);
+      });
+    });
 
     describe("when Quality < 50", function() {
       it("should increase by 1", function() {
