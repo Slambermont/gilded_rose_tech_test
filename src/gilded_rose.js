@@ -19,12 +19,16 @@ class Shop {
         if (this.items[i].sellIn < 0) {
           this.increaseQuality(i)
         }
-      } else if (this.items[i].name === "Sulfuras") {
+      } else if (this.items[i].name === "Sulfuras, Hand of Ragnaros") {
 
       } else if (this.items[i].name === "Backstage passes to a TAFKAL80ETC concert") {
 
       } else {
-
+        this.decreaseSellIn(i)
+        this.decreaseQuality(i)
+        if (this.items[i].sellIn < 0) {
+          this.decreaseQuality(i)
+        }
       }
     }
     return this.items;
