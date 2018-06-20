@@ -26,6 +26,20 @@ describe("Gilded Rose", function() {
     });
   });
 
+  describe("#qualityBelow50", function() {
+    it("Returns true if quality is below 50", function() {
+      const gildedRose = new Shop([ new Item("foo", 1, 1) ]);
+      const items = gildedRose.items
+      expect(gildedRose.qualityBelow50(0)).toEqual(true)
+    });
+
+    it("Returns true if quality is below 50", function() {
+      const gildedRose = new Shop([ new Item("foo", 1, 50) ]);
+      const items = gildedRose.items
+      expect(gildedRose.qualityBelow50(0)).toEqual(false)
+    });
+  });
+
   describe("Other items", function() {
     describe("When quality = 0", function() {
       it("quality should remain at 0", function() {
@@ -97,7 +111,7 @@ describe("Gilded Rose", function() {
         expect(items[0].quality).toEqual(50);
         expect(items[0].sellIn).toEqual(-1);
       });
-    });
+     });
 
     describe("Sulfuras", function() {
       describe("all situations", function() {
