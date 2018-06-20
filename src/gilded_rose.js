@@ -19,6 +19,12 @@ class Shop {
         if (this.items[i].sellIn < 0) {
           this.increaseQuality(i)
         }
+      } else if (this.items[i].name === "Sulfuras") {
+
+      } else if (this.items[i].name === "Backstage passes to a TAFKAL80ETC concert") {
+
+      } else {
+
       }
     }
     return this.items;
@@ -29,7 +35,9 @@ class Shop {
   }
 
   decreaseQuality(index) {
-    this.items[index].quality -= 1
+    if (this.qualityAbove0(index)) {
+      this.items[index].quality -= 1
+    }
   }
 
   increaseQuality(index) {
@@ -40,6 +48,10 @@ class Shop {
 
   qualityBelow50(index) {
     return this.items[index].quality < 50 ? true : false
+  }
+
+  qualityAbove0(index) {
+    return this.items[index].quality > 0 ? true : false
   }
 
   // updateQuality() {

@@ -33,46 +33,60 @@ describe("Gilded Rose", function() {
       expect(gildedRose.qualityBelow50(0)).toEqual(true)
     });
 
-    it("Returns true if quality is below 50", function() {
+    it("Returns false if quality is 50", function() {
       const gildedRose = new Shop([ new Item("foo", 1, 50) ]);
       const items = gildedRose.items
       expect(gildedRose.qualityBelow50(0)).toEqual(false)
     });
   });
 
-  // describe("Other items", function() {
-  //   describe("When quality = 0", function() {
-  //     it("quality should remain at 0", function() {
-  //       const gildedRose = new Shop([ new Item("foo", 0, 0) ]);
-  //       const items = gildedRose.updateQuality();
-  //       expect(items[0].quality).toEqual(0);
-  //       expect(items[0].sellIn).toEqual(-1);
-  //     });
-  //
-  //     it("quality should remain at 0", function() {
-  //       const gildedRose = new Shop([ new Item("foo", 1, 0) ]);
-  //       const items = gildedRose.updateQuality();
-  //       expect(items[0].quality).toEqual(0);
-  //       expect(items[0].sellIn).toEqual(0);
-  //     });
-  //   });
-  //
-  //   describe("When quality > 0", function() {
-  //     it("quality should decrease by 1", function() {
-  //       const gildedRose = new Shop([ new Item("foo", 1, 2) ]);
-  //       const items = gildedRose.updateQuality();
-  //       expect(items[0].quality).toEqual(1);
-  //       expect(items[0].sellIn).toEqual(0);
-  //     });
-  //
-  //     it("quality should decrease by 2", function() {
-  //       const gildedRose = new Shop([ new Item("foo", 0, 2) ]);
-  //       const items = gildedRose.updateQuality();
-  //       expect(items[0].quality).toEqual(0);
-  //       expect(items[0].sellIn).toEqual(-1);
-  //     });
-  //   });
-  // });
+  describe("#qualityAbove0", function() {
+    it("Returns true if quality is above 0", function() {
+      const gildedRose = new Shop([ new Item("foo", 1, 1) ]);
+      const items = gildedRose.items
+      expect(gildedRose.qualityAbove0(0)).toEqual(true)
+    });
+
+    it("Returns true if quality is 0", function() {
+      const gildedRose = new Shop([ new Item("foo", 1, 0) ]);
+      const items = gildedRose.items
+      expect(gildedRose.qualityAbove0(0)).toEqual(false)
+    });
+  });
+
+  describe("Other items", function() {
+    describe("When quality = 0", function() {
+      it("quality should remain at 0", function() {
+        const gildedRose = new Shop([ new Item("foo", 0, 0) ]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].quality).toEqual(0);
+        expect(items[0].sellIn).toEqual(-1);
+      });
+
+      it("quality should remain at 0", function() {
+        const gildedRose = new Shop([ new Item("foo", 1, 0) ]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].quality).toEqual(0);
+        expect(items[0].sellIn).toEqual(0);
+      });
+    });
+
+    describe("When quality > 0", function() {
+      it("quality should decrease by 1", function() {
+        const gildedRose = new Shop([ new Item("foo", 1, 2) ]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].quality).toEqual(1);
+        expect(items[0].sellIn).toEqual(0);
+      });
+
+      it("quality should decrease by 2", function() {
+        const gildedRose = new Shop([ new Item("foo", 0, 2) ]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].quality).toEqual(0);
+        expect(items[0].sellIn).toEqual(-1);
+      });
+    });
+  });
 
    describe("Aged Brie", function() {
     describe("when Quality = 50", function() {
