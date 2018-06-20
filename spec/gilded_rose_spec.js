@@ -1,4 +1,12 @@
 describe("Gilded Rose", function() {
+  describe("#decreaseSellIn", function() {
+    it("decreases sellIn by 1", function() {
+      const gildedRose = new Shop([ new Item("foo", 1, 0) ]);
+      const items = gildedRose.items
+      gildedRose.decreaseSellIn(0)
+      expect(items[0].sellIn).toEqual(0)
+    });
+  });
 
   describe("Other items", function() {
     describe("When quality = 0", function() {
@@ -34,7 +42,7 @@ describe("Gilded Rose", function() {
     });
   });
 
-  describe("Aged Brie", function() {
+   describe("Aged Brie", function() {
     describe("when Quality = 50", function() {
       it("should remain at 50", function() {
         const gildedRose = new Shop([ new Item("Aged Brie", 1, 50) ]);
