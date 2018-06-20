@@ -17,6 +17,15 @@ describe("Gilded Rose", function() {
     });
   });
 
+  describe("#increaseQuality", function() {
+    it("decreases quality by 1", function() {
+      const gildedRose = new Shop([ new Item("foo", 1, 1) ]);
+      const items = gildedRose.items
+      gildedRose.increaseQuality(0)
+      expect(items[0].quality).toEqual(2)
+    });
+  });
+
   describe("Other items", function() {
     describe("When quality = 0", function() {
       it("quality should remain at 0", function() {
