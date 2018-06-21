@@ -25,7 +25,7 @@ I started by mapping out what was going on in the updateQuality function to make
 
 Using this diagram I tried to write down every possible scenario and, wrote some tests that all passed with the original code.
 
-![Alt text](./TestSpreadSheet)
+![Alt text](./TestSpreadSheet.png)
 
 I then started looking for repetitive behavior and for every line or block of code that happened more than once, I extracted it into a function that I named describing what it did. I refactored the existing code using those functions to make it read a bit more like English.
 
