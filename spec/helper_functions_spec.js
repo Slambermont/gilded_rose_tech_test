@@ -52,3 +52,17 @@ describe("#qualityAbove0", function() {
     expect(gildedRose.qualityAbove0(0)).toEqual(false)
   });
 });
+
+describe("#PastSellInDate", function() {
+  it("Returns true if sellIn date is below 0", function() {
+    const gildedRose = new Shop([ new Item("foo", -1, 1) ]);
+    const items = gildedRose.items
+    expect(gildedRose.pastSellInDate(0)).toEqual(true)
+  });
+
+  it("Returns false if sellIn date is above 0", function() {
+    const gildedRose = new Shop([ new Item("foo", 0, 1) ]);
+    const items = gildedRose.items
+    expect(gildedRose.pastSellInDate(0)).toEqual(false)
+  });
+});

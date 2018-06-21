@@ -31,7 +31,7 @@ class Shop {
     this.decreaseSellIn(i)
     this.decreaseQuality(i)
     this.decreaseQuality(i)
-    if (this.items[i].sellIn < 0) {
+    if (this.pastSellInDate(i)) {
       this.decreaseQuality(i)
       this.decreaseQuality(i)
     }
@@ -40,14 +40,14 @@ class Shop {
   updateQualityBrie(i) {
     this.decreaseSellIn(i)
     this.increaseQuality(i)
-    if (this.items[i].sellIn < 0) {
+    if (this.pastSellInDate(i)) {
       this.increaseQuality(i)
     }
   }
 
   updateQualityBackstage(i) {
     this.decreaseSellIn(i)
-    if (this.items[i].sellIn < 0) {
+    if (this.pastSellInDate(i)) {
       this.items[i].quality = 0
     } else {
       this.increaseQuality(i)
@@ -63,7 +63,7 @@ class Shop {
   updateQualityOther(i) {
     this.decreaseSellIn(i)
     this.decreaseQuality(i)
-    if (this.items[i].sellIn < 0) {
+    if (this.pastSellInDate(i)) {
       this.decreaseQuality(i)
     }
   }
@@ -90,5 +90,9 @@ class Shop {
 
   qualityAbove0(index) {
     return this.items[index].quality > 0 ? true : false
+  }
+
+  pastSellInDate(index) {
+    return this.items[index].sellIn < 0 ? true : false
   }
 }
