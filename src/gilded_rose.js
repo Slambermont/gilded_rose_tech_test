@@ -1,5 +1,5 @@
 class Item {
-  constructor(name, sellIn, quality){
+  constructor(name, sellIn, quality) {
     this.name = name;
     this.sellIn = sellIn;
     this.quality = quality;
@@ -7,18 +7,18 @@ class Item {
 }
 
 class Shop {
-  constructor(items=[]){
+  constructor(items = []) {
     this.items = items;
   }
 
   updateQuality() {
-    for (var i = 0; i < this.items.length; i++) {
-      if (this.items[i].name === "Aged Brie") {
+    for (let i = 0; i < this.items.length; i++) {
+      if (this.items[i].name === 'Aged Brie') {
         this.updateQualityBrie(i)
-      } else if (this.items[i].name === "Sulfuras, Hand of Ragnaros") {
-      } else if (this.items[i].name === "Backstage passes to a TAFKAL80ETC concert") {
+      } else if (this.items[i].name === 'Sulfuras, Hand of Ragnaros') {
+      } else if (this.items[i].name === 'Backstage passes to a TAFKAL80ETC concert') {
         this.updateQualityBackstage(i)
-      } else if (this.items[i].name === "Conjured") {
+      } else if (this.items[i].name === 'Conjured') {
         this.updateQualityConjured(i)
       } else {
         this.updateQualityOther(i)
@@ -85,14 +85,14 @@ class Shop {
   }
 
   qualityBelow50(index) {
-    return this.items[index].quality < 50 ? true : false
+    return this.items[index].quality < 50
   }
 
   qualityAbove0(index) {
-    return this.items[index].quality > 0 ? true : false
+    return this.items[index].quality > 0
   }
 
   pastSellInDate(index) {
-    return this.items[index].sellIn < 0 ? true : false
+    return this.items[index].sellIn < 0
   }
 }
